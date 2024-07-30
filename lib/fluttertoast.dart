@@ -435,7 +435,7 @@ class ToastStateFulState extends State<_ToastStateFul>
         ignoring: widget.ignorePointer,
         child: SlideTransition(
           position: Tween<Offset>(
-            begin: const Offset(0.0, -1),
+            begin: const Offset(0.0, 1),
             end: const Offset(0.0, 0.0),
           ).animate(_animationController!),
           child: FadeTransition(
