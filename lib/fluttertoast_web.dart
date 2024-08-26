@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:js_interop';
 import 'package:web/web.dart' as web;
 import 'dart:ui_web' as ui;
 import 'package:flutter/services.dart';
@@ -123,8 +124,12 @@ class FluttertoastWebPlugin {
       ele!.remove();
     }
     final web.HTMLScriptElement scriptText = web.HTMLScriptElement()
-      ..id = "toast-content"
-      ..innerHTML = content;
+      ..id = "toast-content";
+    if (scriptText.innerHTML is String) {
+      scriptText.innerHTML = content.toJS.toString() as dynamic;
+    } else {
+      scriptText.innerHTML = content.toJS as dynamic;
+    }
     web.document.body!.append(scriptText);
     if (textColor != null) {
       web.Element toast = web.document.querySelector('.toastify')!;
