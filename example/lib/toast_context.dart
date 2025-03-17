@@ -41,7 +41,7 @@ class _ToastContextState extends State<ToastContext> {
         child: toast,
         gravity: ToastGravity.BOTTOM,
         toastDuration: Duration(seconds: 2),
-        positionedToastBuilder: (context, child) {
+        positionedToastBuilder: (context, child, gravity) {
           return Positioned(
             child: child,
             top: 16.0,
@@ -148,6 +148,9 @@ class _ToastContextState extends State<ToastContext> {
               onPressed: () {
                 _showToast();
               },
+            ),
+            SizedBox(
+              height: 24.0,
             ),
             ElevatedButton(
               child: Text("Show Custom Toast via PositionedToastBuilder"),

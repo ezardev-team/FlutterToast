@@ -1,3 +1,16 @@
+## [8.2.11]
+
+- iOS Privacy manifest fix
+
+## [8.2.10]
+
+- Support for latest flutter version (3.27.0)
+- minor fixes
+
+## [8.2.9]
+
+- Removes references to Flutter v1 android embedding classes.
+
 ## [8.2.8]
 
 - Merged multiple PRs thanks for your contributions
@@ -61,6 +74,7 @@
 - Added fadeDuration in FToast to set fade animation Duration
 - Fixed Toast behind the screen #287 , #281
 - Fixed #303
+
 ## [8.0.6]
 
 - Only safe (?.) or non-null asserted (!!.) (#300)
@@ -68,6 +82,7 @@
 ## [8.0.5]
 
 - Fixed Unresolved reference: R (Issue with Android API 30)
+
 ## [8.0.4]
 
 - Fixed Unresolved reference: R (Issue with Android API 30)
@@ -164,7 +179,6 @@
 ## [5.0.2]
 
 - Web Fix after name change
-
 
 ## [5.0.1]
 

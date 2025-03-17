@@ -11,12 +11,12 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.TextView
 import android.widget.Toast
+import android.util.Log
 import androidx.core.content.ContextCompat
+import io.flutter.FlutterInjector
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.view.FlutterMain
-import java.io.File
 
 internal class MethodCallHandlerImpl(private var context: Context) : MethodCallHandler {
 
@@ -71,11 +71,12 @@ internal class MethodCallHandlerImpl(private var context: Context) : MethodCallH
 
                     if (fontAsset != null) {
                         val assetManager: AssetManager = context.assets
-                        val key = FlutterMain.getLookupKeyForAsset(fontAsset)
+                        val key = FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(fontAsset)
                         text.typeface = Typeface.createFromAsset(assetManager, key);
                     }
                     mToast?.view = layout
                 } else {
+                    Log.d("KARTHIK", "showToast: $bgcolor $textcolor $fontSize $fontAsset")
                     mToast = Toast.makeText(context, mMessage, mDuration)
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
                         val textView: TextView = mToast?.view!!.findViewById(android.R.id.message)
@@ -87,7 +88,7 @@ internal class MethodCallHandlerImpl(private var context: Context) : MethodCallH
                         }
                         if (fontAsset != null) {
                             val assetManager: AssetManager = context.assets
-                            val key = FlutterMain.getLookupKeyForAsset(fontAsset)
+                            val key = FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(fontAsset)
                             textView.typeface = Typeface.createFromAsset(assetManager, key);
                         }
                     }
