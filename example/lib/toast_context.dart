@@ -8,7 +8,7 @@ class ToastContext extends StatefulWidget {
 }
 
 class _ToastContextState extends State<ToastContext> {
-  late FToast fToast;
+  late EToast fToast;
 
   Widget toast = Container(
     padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
@@ -127,7 +127,7 @@ class _ToastContextState extends State<ToastContext> {
   @override
   void initState() {
     super.initState();
-    fToast = FToast();
+    fToast = EToast();
     fToast.init(navigatorKey.currentContext!);
   }
 
